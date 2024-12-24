@@ -29,40 +29,32 @@ export const HomeView: FC = ({ }) => {
   return (
 
     <div className="md:hero mx-auto p-4">
-      <div className="md:hero-content flex flex-col">
+      <div className="md:hero-content flex flex-col lg:pl-48">
         <div className='mt-6'>
-        <div className='text-sm font-normal align-bottom text-right text-slate-600 mt-4'>v{pkg.version}</div>
-        <h1 className="text-center text-5xl md:pl-12 font-bold text-transparent bg-clip-text bg-gradient-to-br from-indigo-500 to-fuchsia-500 mb-4">
-          Solana Next
+        <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold text-[#DADADA] mb-1">
+          Wallet Checker
         </h1>
         </div>
-        <h4 className="md:w-full text-2x1 md:text-4xl text-center text-slate-300 my-2">
-          <p>Unleash the full power of blockchain with Solana and Next.js 13.</p>
-          <p className='text-slate-500 text-2x1 leading-relaxed'>Full-stack Solana applications made easy.</p>
+        <h4 className="text-base text-[#DADADA] md:w-[28rem] md:text-center">
+          <p className='text-[#DADADA]'>See how many tokens you are entitled to when the TGE goes live.</p>
         </h4>
-        <div className="relative group">
-          <div className="absolute -inset-0.5 bg-gradient-to-r from-indigo-500 to-indigo-500 rounded-lg blur opacity-40 animate-tilt"></div>
-          <div className="max-w-md mx-auto mockup-code bg-primary border-2 border-[#5252529f] p-6 px-10 my-2">
-            <pre data-prefix=">">
-              <code className="truncate">{`npx create-solana-dapp <dapp-name>`} </code>
-            </pre>
-          </div>
+        <div className="hidden w-screen md:block"></div>
+        <div className="mt-14 md:mt-8">
+          <label htmlFor="wallet__address__input" className='block mb-3 text-xs text-[#DADADA]'>Enter wallet address</label>
+          <input type="text" className='bg-transparent border border-white rounded-full w-full md:w-[32rem] lg:w-[40rem] py-3 px-6 focus:outline-none' />
         </div>
-        <div className="flex flex-col mt-2">
-          <RequestAirdrop />
-          <h4 className="md:w-full text-2xl text-slate-300 my-2">
-          {wallet &&
-          <div className="flex flex-row justify-center">
-            <div>
-              {(balance || 0).toLocaleString()}
+
+        <Link href="/token">
+          <div className="flex bg-[#A3FF12] items-center text-[#090A1A] rounded-full w-full md:w-[32rem] lg:w-[40rem] py-3 px-6 mt-4 md:mt-1">
+              <div className='flex-1 text-center'>
+                <p className='font-normal text-sm'>View your token count</p>
               </div>
-              <div className='text-slate-600 ml-2'>
-                SOL
+              <div className='flex-none w-5'>
+                <img className='block' src="/chevron-right.svg" alt="" />
               </div>
           </div>
-          }
-          </h4>
-        </div>
+        </Link>
+        
       </div>
     </div>
   );
